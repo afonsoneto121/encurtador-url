@@ -7,8 +7,8 @@ urlRouter.post('/', (req: Request, res: Response, next: NextFunction) => (
   urlController.handleShorten(req, res, next)
 ));
 
-urlRouter.get('/:url', (req: Request, res: Response, next: NextFunction) => (
-  urlController.handleShorten(req, res, next)
+urlRouter.get('/:hash', (req: Request<{hash:string}>, res: Response, next: NextFunction) => (
+  urlController.redirect(req, res, next)
 ));
 
 export {urlRouter};

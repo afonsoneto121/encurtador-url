@@ -21,5 +21,16 @@ class URLService {
     console.log(urlToSave);
     return urlToSave;
   }
+
+  public async findDomain(url: string): Promise<string | undefined> {
+    if (this.isFullUrl(url)) {
+      return await this.repository.findDomainByURLShortened(url);
+    }
+    return await this.repository.findDomainByHash(url);
+  }
+
+  private isFullUrl(url: string): boolean {
+    return url.startsWith('http');
+  }
 }
 export {URLService};

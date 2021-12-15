@@ -1,7 +1,7 @@
-// import {connect, connection, ConnectOptions} from 'mongoose';
+import {connect, connection, ConnectOptions} from 'mongoose';
+import * as constants from '../common/constants';
 
-
-/* const options = {
+const options = {
   autoCreate: true,
   autoIndex: false,
 } as ConnectOptions;
@@ -14,6 +14,6 @@ connection.on('error', () => {
 });
 
 export const run = async (): Promise<void> => {
-  await connect(URL, options);
+  await connect(constants.MONGO_URL, options);
 };
- */
+

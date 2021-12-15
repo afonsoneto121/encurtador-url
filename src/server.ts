@@ -5,6 +5,8 @@ import {errorHanddlerMiddleware} from './middlewares/error-handdles.middleware';
 import * as constants from './common/constants';
 import {urlRouter} from './router/url.router';
 import {statusRouter} from './router/status.router';
+import * as databaseMongo from './db/mongo.config';
+
 const app = express();
 
 app.use(loader('dev'));
@@ -20,4 +22,5 @@ app.use(errorHanddlerMiddleware);
 
 app.listen(constants.PORT, constants.HOST, () => {
   console.log(`API running at ${constants.API_URL}`);
+  databaseMongo.run();
 });
