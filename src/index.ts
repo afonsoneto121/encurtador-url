@@ -1,17 +1,9 @@
-import express from 'express';
-import * as cors from 'cors';
-import loader from 'morgan';
-const app = express();
+import {URLController} from './controllers/url.controller';
+import {URLMongoImp} from './repositories/implementation/url.mongo.imp';
+import {URLService} from './services/url.service';
 
-app.use(loader('dev'));
-app.use(cors.default());
+const urlMongoRepository = new URLMongoImp();
+const urlService = new URLService(urlMongoRepository);
+const urlController = new URLController(urlService);
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-const port = (process.env.PORT || 3333) as number;
-const hostname = process.env.HOST || '0.0.0.0';
-
-app.listen(port, hostname, () => {
-  console.log(`API running in port ${port}`);
-});
+export {urlController};
