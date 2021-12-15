@@ -11,7 +11,7 @@ services:
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_SERVER: dbmongo
+      ME_CONFIG_MONGODB_SERVER: dbmongo_2
       ME_CONFIG_OPTIONS_EDITORTHEME: "ambiance"
     links:
       - mongo
@@ -19,7 +19,7 @@ services:
       - mongo-compose-network
 
   mongo:
-    container_name: dbmongo
+    container_name: dbmongo_2
     image: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
