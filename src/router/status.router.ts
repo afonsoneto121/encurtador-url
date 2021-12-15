@@ -4,7 +4,7 @@ import StatusCodes from 'http-status-codes';
 // eslint-disable-next-line new-cap
 const statusRouter = Router();
 
-statusRouter.get('/', (req, res) => {
+statusRouter.get('/status', (req, res) => {
   res.status(StatusCodes.OK).json({
     status: 'OK',
   });

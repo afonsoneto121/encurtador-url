@@ -15,8 +15,8 @@ app.use(cors.default());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(urlRouter);
 app.use(statusRouter);
+app.use(urlRouter);
 
 app.use(errorHanddlerMiddleware);
 

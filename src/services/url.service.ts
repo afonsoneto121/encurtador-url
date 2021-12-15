@@ -18,11 +18,10 @@ class URLService {
       uuid: uuid.v4(),
     };
     await this.repository.saveURL(urlToSave);
-    console.log(urlToSave);
     return urlToSave;
   }
 
-  public async findDomain(url: string): Promise<string | undefined> {
+  public async findDomain(url: string): Promise<string | undefined | null> {
     if (this.isFullUrl(url)) {
       return await this.repository.findDomainByURLShortened(url);
     }
